@@ -1,0 +1,51 @@
+---
+title: Copy Button
+description: 带复制状态反馈的剪贴板按钮，支持图标模式与自定义文案。
+---
+
+<ComponentPreview name="copy-button" />
+
+## 安装
+
+<InstallCommand name="copy-button">
+
+安装以下依赖：
+
+```bash
+pnpm add lucide-react clsx tailwind-merge
+```
+
+确保项目中存在 `@/lib/utils` 的 `cn` 函数，以及 shadcn 主题变量。
+
+</InstallCommand>
+
+首次使用请先[配置项目](/docs/installation)。
+
+## 用法
+
+<div className="usage-code">
+
+```tsx lineNumbers
+import { CopyButton } from "@/components/jan-ui/copy-button"
+```
+
+```tsx lineNumbers
+<CopyButton text="需要复制的内容" />
+```
+
+</div>
+
+复制期间禁用按钮，成功后切换为勾选图标并播报「已复制」，两秒后恢复。失败时显示错误图标、播报错误文案并允许重试。剪贴板写入需要 HTTPS 或 localhost 环境及浏览器许可；不可用时会进入失败状态。
+
+## 属性
+
+<PropsTable rows={[
+  { name: "text", type: "string", defaultValue: '""', description: "要写入剪贴板的文本，不传时复制空字符串。" },
+  { name: "iconOnly", type: "boolean", defaultValue: "true", description: "默认仅显示图标，保留无障碍文案；设为 false 时显示文字。" },
+  { name: "label", type: "string", defaultValue: '"复制"', description: "默认文案。" },
+  { name: "copiedLabel", type: "string", defaultValue: '"已复制"', description: "复制成功文案，用于状态播报和悬停提示；文字模式下也显示在按钮中。" },
+  { name: "disabled", type: "boolean", defaultValue: "false", description: "是否禁用按钮。" },
+  { name: "className", type: "string", description: "附加样式类。" },
+]} />
+
+支持原生 button 属性（不含 children、onCopy、onError）和 ref。默认 `type="button"`，在 `onClick` 中调用 `preventDefault()` 可取消复制。

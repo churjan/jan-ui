@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "janui",
+  "homepage": "https://github.com/churjan/jan-ui",
+  "items": [
+    {
+      "name": "copy-button",
+      "type": "registry:ui",
+      "title": "Copy Button",
+      "description": "带复制状态反馈的剪贴板按钮，支持图标模式与自定义文案。",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "apps/www/components/jan-ui/copy-button.tsx",
+          "type": "registry:ui",
+          "target": "@components/jan-ui/copy-button.tsx"
+        }
+      ]
+    }
+  ]
+}

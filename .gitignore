@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.npm-cache/
+.env.local
+.pnpm-store/
+.next/
+.source/
+.turbo/
+*.tsbuildinfo
+.registry-check/
