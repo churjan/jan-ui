@@ -1,116 +1,43 @@
 ---
 title: 安装
-description: 将 Jan UI 组件添加到你的 React 项目。
+description: 安装依赖并配置你的项目。
 ---
 
-## 准备项目
+import { Step, Steps } from "fumadocs-ui/components/steps"
+import { Callout } from "fumadocs-ui/components/callout"
+import { ShadcnCommand } from "@/components/command-tabs"
+import { githubRepository } from "@/lib/components"
 
-使用 React 和 Tailwind CSS v4。如果尚未配置 shadcn/ui，在目标项目中执行：
+<Callout type="warn" className="ps-3 [&>div[role=none]]:hidden">
+  Jan UI 使用 [shadcn/ui](https://ui.shadcn.com/docs/installation) 的安装流程。
+</Callout>
 
-```bash
-pnpm dlx shadcn@latest init
-```
+<Steps>
+<Step>
 
-## 添加组件
+### 初始化项目
 
-<InstallCommand name="copy-button" />
+在你的 React 与 Tailwind CSS v4 项目中执行，按提示完成初始化：
 
-命令直接读取 GitHub 仓库，无需配置命名空间。仓库公开发布后即可使用。
+<ShadcnCommand command="init" />
 
-## 使用
+所需依赖、主题样式和 `cn` 工具函数会自动配置。
 
-```tsx
-import { CopyButton } from "@/components/jan-ui/copy-button"
+</Step>
+<Step>
 
-export function Example() {
-  return <CopyButton text="需要复制的内容" />
-}
-```
+### 添加组件
 
-<details>
-<summary>手动复制与主题配置</summary>
+以 Copy Button 为例，执行以下命令添加组件及其依赖：
 
-## 手动获取源码
+<ShadcnCommand command={`add ${githubRepository}/copy-button`} />
 
-在 GitHub 仓库点击 **Code → Download ZIP** 下载，或使用仓库页面提供的克隆地址。
+其他组件的安装命令见对应文档。
 
-组件位于 `apps/www/components/jan-ui/`，交互示例按组件分组，位于 `apps/www/components/examples/<组件名>/`。也可以直接在组件文档的「安装 → Manual」面板复制单个文件。
+</Step>
+<Step>
 
-## 复制到项目
-
-例如使用按钮时，把 `copy-button.tsx` 复制到目标项目的 `src/components/jan-ui/`，再把仓库的 `apps/www/lib/utils.ts` 复制到目标项目的 `src/lib/utils.ts`。
-
-```text
-src/
-  components/jan-ui/copy-button.tsx
-  lib/utils.ts
-```
-
-源码默认使用 `@/lib/utils`。请将 `@/*` 映射到目标项目的源码目录；如果使用其他目录结构，相应修改导入路径。
-
-## 安装代码依赖
-
-在目标项目中执行：
-
-```bash
-pnpm add clsx tailwind-merge
-```
-
-按钮还需要：
-
-```bash
-pnpm add lucide-react
-```
-
-组件自身不依赖 Next.js 或 Fumadocs。
-
-## 配置样式
-
-目标项目需要 Tailwind CSS v4。如果已经配置 shadcn/ui 的主题变量，可以直接沿用。
-
-没有主题配置时，在全局 CSS 中加入以下最小配置，并确保应用入口导入该 CSS：
-
-```css
-@import "tailwindcss";
-@custom-variant dark (&:where(.dark, .dark *));
-
-:root {
-  --background: #fcfcfa;
-  --foreground: #232720;
-  --primary: #456348;
-  --primary-foreground: #ffffff;
-  --muted: #f0f1eb;
-  --muted-foreground: #7a7f75;
-  --border: #e3e5dc;
-  --ring: #456348;
-}
-
-.dark {
-  --background: #191c18;
-  --foreground: #e6e9df;
-  --primary: #b5cf9d;
-  --primary-foreground: #20291b;
-  --muted: #252a23;
-  --muted-foreground: #a0a897;
-  --border: #363e31;
-  --ring: #b5cf9d;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-border: var(--border);
-  --color-ring: var(--ring);
-}
-```
-
-不要将本站包含 Fumadocs 样式的整个全局 CSS 复制到业务项目。
-
-## 使用组件
+### 导入并使用
 
 ```tsx
 import { CopyButton } from "@/components/jan-ui/copy-button"
@@ -120,8 +47,7 @@ export function Example() {
 }
 ```
 
-复制后直接在自己的项目中修改源码。后续更新通过 GitHub 对比并手动合并。
+组件源码保存在你的项目中，可以直接修改样式和行为。
 
-</details>
-
-
+</Step>
+</Steps>
