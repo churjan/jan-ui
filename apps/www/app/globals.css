@@ -40,6 +40,15 @@
 body { background: var(--background); color: var(--foreground); }
 button:not(:disabled) { cursor: pointer; }
 a, button { touch-action: manipulation; }
+
+/* Match the documentation code-block copy icon to Jan UI's Copy icon. */
+.shiki button svg.lucide-clipboard {
+  background-color: currentColor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect width='14' height='14' x='8' y='8' rx='2' ry='2'/%3E%3Cpath d='M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.shiki button svg.lucide-clipboard > * { display: none; }
+
 .usage-code figure.shiki {
   margin-block: 24px;
   border: 1px solid var(--border);

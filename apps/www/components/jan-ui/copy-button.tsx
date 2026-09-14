@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState, type ComponentProps } from "react"
-import { Check, Clipboard, LoaderCircle, X } from "lucide-react"
+import { Check, Copy, LoaderCircle, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 export type CopyButtonProps = Omit<ComponentProps<"button">, "children" | "onCopy" | "onError"> & {
@@ -42,7 +42,7 @@ export function CopyButton({
 
   const visiblePending = state === "pending" && showPending
   const currentLabel = state === "copied" ? copiedLabel : state === "error" ? "复制失败，请重试" : visiblePending ? "正在复制" : label
-  const Icon = state === "copied" ? Check : state === "error" ? X : visiblePending ? LoaderCircle : Clipboard
+  const Icon = state === "copied" ? Check : state === "error" ? X : visiblePending ? LoaderCircle : Copy
 
   return (
     <button

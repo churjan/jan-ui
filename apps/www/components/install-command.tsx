@@ -39,10 +39,9 @@ export function InstallCommand({ name, code, children }: { name: string; code: R
       </Tabs>
     </TabsContent>
     <TabsContent value="Manual">
-      <p className="text-sm text-muted-foreground">首次使用请先完成<a href="/docs/installation">项目初始化</a>，准备好 cn 工具函数和主题样式。</p>
       <Steps>
         {!!component?.dependencies.length && <Step>
-          <h4 className="pt-1 text-sm font-medium">安装以下依赖：</h4>
+          <h4 className="pt-1 text-sm font-medium">安装依赖</h4>
           <DependencyCommand dependencies={component.dependencies} />
         </Step>}
         {registryDependencies.length > 0 && <Step>
@@ -50,7 +49,7 @@ export function InstallCommand({ name, code, children }: { name: string; code: R
           <DependencyCommand dependencies={registryDependencies} registry />
         </Step>}
         <Step>
-          <h4 className="pt-1 text-sm font-medium">将以下源码复制到你的项目中：</h4>
+          <h4 className="pt-1 text-sm font-medium">复制源码</h4>
       <div className="not-prose relative my-5 overflow-hidden rounded-xl">
         <div id={id} inert={!expanded} className={cn("overflow-hidden", expanded ? "pb-12" : "max-h-32")}>
           {code}
@@ -59,10 +58,10 @@ export function InstallCommand({ name, code, children }: { name: string; code: R
           <button type="button" aria-expanded={expanded} aria-controls={id} onClick={() => setExpanded(open => !open)} className="inline-flex h-8 items-center justify-center rounded-md bg-muted px-3 text-xs font-medium text-foreground shadow-xs transition-colors hover:bg-border">{expanded ? "收起" : "展开"}</button>
         </div>
       </div>
+          {children}
         </Step>
         <Step>
-          <h4 className="pt-1 text-sm font-medium">根据项目结构调整导入路径：</h4>
-          {children ?? <p>调整源码中的导入路径，并按主题配置说明完成样式配置。</p>}
+          <h4 className="pt-1 text-sm font-medium">根据项目结构调整导入路径</h4>
         </Step>
       </Steps>
     </TabsContent>

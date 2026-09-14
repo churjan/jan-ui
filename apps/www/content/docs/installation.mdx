@@ -8,7 +8,7 @@ import { Callout } from "fumadocs-ui/components/callout"
 import { ShadcnCommand } from "@/components/command-tabs"
 import { githubRepository } from "@/lib/components"
 
-<Callout type="warn" className="ps-3 [&>div[role=none]]:hidden">
+<Callout type="info" className="ps-3 [&>div[role=none]]:hidden">
   Jan UI 使用 [shadcn/ui](https://ui.shadcn.com/docs/installation) 的安装流程。
 </Callout>
 
@@ -17,7 +17,7 @@ import { githubRepository } from "@/lib/components"
 
 ### 初始化项目
 
-在你的 React 与 Tailwind CSS v4 项目中执行，按提示完成初始化：
+在你的 React 19 与 Tailwind CSS v4 项目中执行，按提示完成初始化：
 
 <ShadcnCommand command="init" />
 
@@ -32,7 +32,7 @@ import { githubRepository } from "@/lib/components"
 
 <ShadcnCommand command={`add ${githubRepository}/copy-button`} />
 
-其他组件的安装命令见对应文档。
+组件默认添加到 `components/jan-ui` 目录。其他组件的安装命令见对应文档。
 
 </Step>
 <Step>
@@ -51,3 +51,5 @@ export function Example() {
 
 </Step>
 </Steps>
+
+[浏览组件 →](/docs#组件)

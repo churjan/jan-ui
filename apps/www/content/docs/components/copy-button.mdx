@@ -3,17 +3,13 @@ title: Copy Button
 description: 带复制状态反馈的剪贴板按钮，支持图标模式与自定义文案。
 ---
 
+import { Callout } from "fumadocs-ui/components/callout"
+
 <ComponentPreview name="copy-button" />
 
 ## 安装
 
-<InstallCommand name="copy-button">
-
-确保项目中存在 `@/lib/utils` 的 `cn` 函数，以及 shadcn 主题变量。
-
-</InstallCommand>
-
-首次使用请先[配置项目](/docs/installation)。
+<InstallCommand name="copy-button" />
 
 ## 用法
 
@@ -29,7 +25,13 @@ import { CopyButton } from "@/components/jan-ui/copy-button"
 
 </div>
 
-复制期间禁用按钮，成功后切换为勾选图标并播报「已复制」，两秒后恢复。失败时显示错误图标、播报错误文案并允许重试。剪贴板写入需要 HTTPS 或 localhost 环境及浏览器许可；不可用时会进入失败状态。
+<Callout type="info" className="ps-3 [&>div[role=none]]:hidden">
+  复制期间按钮暂时禁用；成功后显示勾选图标，失败后显示错误图标，可再次点击重试。成功和失败状态均在两秒后恢复，支持屏幕阅读器播报状态提示。
+</Callout>
+
+<Callout type="warn" className="ps-3 [&>div[role=none]]:hidden">
+  剪贴板写入需要 HTTPS 或 localhost 环境及浏览器许可；不可用时会进入失败状态。
+</Callout>
 
 ## 属性
 
